@@ -1,0 +1,81 @@
+"use client";
+
+import { useMemo } from "react";
+import { useTheme } from "next-themes";
+import {
+  Cloud,
+  ICloud,
+  renderSimpleIcon,
+} from "react-icon-cloud";
+
+import * as icons from "simple-icons";
+
+export const cloudProps: Omit<ICloud, "children"> = {
+  containerProps: {
+    style: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      paddingTop: 40,
+    },
+  },
+  options: {
+    reverse: true,
+    depth: 1,
+    wheelZoom: false,
+    imageScale: 2,
+    activeCursor: "default",
+    tooltip: "native",
+    initial: [0.1, -0.1],
+    clickToFront: 500,
+    tooltipDelay: 0,
+    outlineColour: "#0000",
+    maxSpeed: 0.04,
+    minSpeed: 0.02,
+  },
+};
+
+export type DynamicCloudProps = {
+  iconSlugs: string[];
+};
+
+const IconCloud = ({ iconSlugs }: DynamicCloudProps) => {
+  const { theme } = useTheme();
+
+  const renderedIcons = useMemo(() => {
+    const bgHex = theme === "light" ? "#f3f2ef" : "#080510";
+    const fallbackHex = theme === "light" ? "#6e6e73" : "#ffffff";
+    const minContrastRatio = theme === "dark" ? 2 : 1.2;
+
+    return iconSlugs.map((slug) => {
+      const iconKey = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`; // e.g., "react" => "siReact"
+      const icon = (icons as any)[iconKey];
+
+      if (!icon) return null;
+
+      return renderSimpleIcon({
+        icon,
+        bgHex,
+        fallbackHex,
+        minContrastRatio,
+        size: 42,
+        aProps: {
+          href: undefined,
+          target: undefined,
+          rel: undefined,
+          onClick: (e: any) => e.preventDefault(),
+        },
+      });
+    }).filter(Boolean);
+  }, [theme, iconSlugs]);
+
+  return (
+    // @ts-ignore
+    <Cloud {...cloudProps}>
+      <>{renderedIcons}</>
+    </Cloud>
+  );
+};
+
+export default IconCloud;

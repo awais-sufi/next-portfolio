@@ -1,0 +1,46 @@
+{
+  "name": "aj-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.109.5",
+    "@react-three/fiber": "^8.17.5",
+    "@tabler/icons-react": "^3.12.0",
+    "@tsparticles/engine": "^3.5.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.5.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.3.27",
+    "lottie-react": "^2.4.1",
+    "mini-svg-data-uri": "^1.4.4",
+    "next": "^14.2.23",
+    "next-themes": "^0.3.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icon-cloud": "^4.1.7",
+    "react-icons": "^5.5.0",
+    "simple-icons": "^15.3.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.167.1",
+    "three-globe": "^2.31.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.1",
+    "@types/react": "18.3.23",
+    "@types/react-dom": "^18",
+    "@types/react-lottie": "^1.2.10",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.8.3"
+  },
+  "packageManager": "npm@11.7.0+sha512.c22099a6fff8d5b2286c2a09df5352b4858a7c0c716320f58989d60ad8b29ecf2ce6fdfe97ccb41c23ffb1272e1fa079f868487dd6b81d02a2a9e199c095a117"
+}
